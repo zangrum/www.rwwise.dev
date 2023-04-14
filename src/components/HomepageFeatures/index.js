@@ -4,42 +4,54 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Resume',
+    Svg: require('@site/static/img/resume-icon.svg').default,
+    url: 'https://docs.google.com/document/d/1h4_KrisXLRK3DdzxSwdncb11scPcpxq-Q9ZkbH2fnik/export?format=pdf',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+         I am a Lead Software Engineer with over 25-years of deep technical experience across multiple domains, technologies and disciplines.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Personal Projects',
+    Svg: require('@site/static/img/noun-terminal-5033098.svg').default,
+    url: 'projects',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+         My Homelab, AWS, GCP, personal projects and notes.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'My Lego',
+    Svg: require('@site/static/img/noun-lego-brick-847725.svg').default,
+    url: 'mylego',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        I have collected Lego since I was 3 year's old.
+      </>
+    ),
+  },
+  {
+    title: 'Table Top Games',
+    Svg: require('@site/static/img/noun-board-game-night-1151431.svg').default,
+    url: 'tabletopgames',
+    description: (
+      <>
+        I am an avid table top gamer.
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({Svg, title, description, url}) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--3')}>
       <div className="text--center">
+        <a href={url}>
         <Svg className={styles.featureSvg} role="img" />
+        </a>
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>

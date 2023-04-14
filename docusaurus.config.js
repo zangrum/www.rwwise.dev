@@ -6,20 +6,20 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'rwwise.dev',
+  tagline: 'Rick\'s Web & AWS Playground',
+  favicon: 'img/zangrum-icon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://www.rwwise.dev',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  //organizationName: 'facebook', // Usually your GitHub org/user name.
+  //projectName: 'docusaurus', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -31,43 +31,78 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+ 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      {
+        id: 'projects', // omitted => default instance
+        path: 'projects',
+        routeBasePath: 'projects',
+        sidebarPath: require.resolve('./sidebarsProjects.js'),
+        // ... other options
+      },
+    ],
+    // [
+    //   '@docusaurus/plugin-content-docs',
+    //   {
+    //     id: 'mylego',
+    //     path: 'mylego',
+    //     routeBasePath: 'mylego',
+    //     sidebarPath: require.resolve('./sidebarsMyLego.js'),
+    //     // ... other options
+    //   },
+    // ],
+    // [
+    //   '@docusaurus/plugin-content-docs',
+    //   {
+    //     id: 'tabletopgames',
+    //     path: 'tabletopgames',
+    //     routeBasePath: 'tabletopgames',
+    //     sidebarPath: require.resolve('./sidebarsTableTopGames.js'),
+    //     // ... other options
+    //   },
+    // ],
+  ],
 
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          //editUrl:
+          //  'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
+        // //blog: {
+          //showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
+          //editUrl:
+          //  'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        //},
       }),
     ],
   ],
-
+ 
+  
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/zangrum-icon.pn',
       navbar: {
-        title: 'My Site',
+        title: 'rwwise.dev',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Zangrum\'s Icon',
+          src: 'img/zangrum-icon.png',
         },
         items: [
           {
@@ -76,23 +111,35 @@ const config = {
             position: 'left',
             label: 'Tutorial',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
+            type: 'docSidebar',
+            sidebarId: 'sidebarProjects',
+            position: 'left',
+            label: 'Projects',
           },
+          // {
+          //   type: 'docSidebar',
+          //   sidebarId: 'sidebarMyLego',
+          //   position: 'left',
+          //   label: 'My Lego',
+          // },
+          // {
+          //   type: 'docSidebar',
+          //   sidebarId: 'sidebarTableTopGames',
+          //   position: 'left',
+          //   label: 'Table Top Games',
+          // },
         ],
       },
       footer: {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Other Sites',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'rwwise.us',
+                to: 'https://www.rwwise.us',
               },
             ],
           },
@@ -127,7 +174,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Richard W. Wise. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
