@@ -16,7 +16,7 @@ const FeatureList = [
   {
     title: 'Personal Projects',
     Svg: require('@site/static/img/noun-terminal-5033098.svg').default,
-    url: 'projects',
+    url: 'projects/intro',
     description: (
       <>
          My Homelab, AWS, GCP, personal projects and notes.
@@ -26,7 +26,7 @@ const FeatureList = [
   {
     title: 'My Lego',
     Svg: require('@site/static/img/noun-lego-brick-847725.svg').default,
-    url: 'mylego',
+    url: 'mylego/intro',
     description: (
       <>
         I have collected Lego since I was 3 year's old.
@@ -36,7 +36,7 @@ const FeatureList = [
   {
     title: 'Table Top Games',
     Svg: require('@site/static/img/noun-board-game-night-1151431.svg').default,
-    url: 'tabletopgames',
+    url: 'tabletopgames/intro',
     description: (
       <>
         I am an avid table top gamer.

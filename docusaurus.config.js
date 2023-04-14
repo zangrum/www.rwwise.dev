@@ -8,29 +8,36 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'rwwise.dev',
   tagline: 'Rick\'s Web & AWS Playground',
-  favicon: 'img/zangrum-icon.ico',
-
-  // Set the production url of your site here
   url: 'https://www.rwwise.dev',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  //organizationName: 'facebook', // Usually your GitHub org/user name.
-  //projectName: 'docusaurus', // Usually your repo name.
-
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  favicon: 'img/zangrum-icon.ico',
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
-  },
+  presets: [
+    [
+      'classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
+        docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          //editUrl:
+          //  'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        },
+        blog: {
+          showReadingTime: true,
+          //Please change this to your repo.
+          editUrl:
+           'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      }),
+    ],
+  ],
  
   plugins: [
     [
@@ -44,55 +51,28 @@ const config = {
         // ... other options
       },
     ],
-    // [
-    //   '@docusaurus/plugin-content-docs',
-    //   {
-    //     id: 'mylego',
-    //     path: 'mylego',
-    //     routeBasePath: 'mylego',
-    //     sidebarPath: require.resolve('./sidebarsMyLego.js'),
-    //     // ... other options
-    //   },
-    // ],
-    // [
-    //   '@docusaurus/plugin-content-docs',
-    //   {
-    //     id: 'tabletopgames',
-    //     path: 'tabletopgames',
-    //     routeBasePath: 'tabletopgames',
-    //     sidebarPath: require.resolve('./sidebarsTableTopGames.js'),
-    //     // ... other options
-    //   },
-    // ],
-  ],
-
-  presets: [
     [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          //editUrl:
-          //  'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        // //blog: {
-          //showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          //editUrl:
-          //  'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        //},
-      }),
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'mylego',
+        path: 'mylego',
+        routeBasePath: 'mylego',
+        sidebarPath: require.resolve('./sidebarsMyLego.js'),
+        // ... other options
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'tabletopgames',
+        path: 'tabletopgames',
+        routeBasePath: 'tabletopgames',
+        sidebarPath: require.resolve('./sidebarsTableTopGames.js'),
+        // ... other options
+      },
     ],
   ],
- 
-  
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -106,29 +86,29 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            type: 'doc',
+            docId: 'intro',
             position: 'left',
             label: 'Tutorial',
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'sidebarProjects',
+            to: '/projects/intro',
+            activeBaseRegex: '/projects/',
             position: 'left',
             label: 'Projects',
           },
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'sidebarMyLego',
-          //   position: 'left',
-          //   label: 'My Lego',
-          // },
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'sidebarTableTopGames',
-          //   position: 'left',
-          //   label: 'Table Top Games',
-          // },
+          {
+            to: '/mylego/intro',
+            activeBaseRegex: '/mylego/',
+            position: 'left',
+            label: 'My Lego',
+          },
+          {
+            to: '/tabletopgames/intro',
+            activeBaseRegex: '/tabletopgames/',
+            position: 'left',
+            label: 'Table Top Games',
+          },
         ],
       },
       footer: {
@@ -181,6 +161,12 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+    i18n: {
+      defaultLocale: 'en',
+      locales: ['en'],
+    },
 };
+console.log("docusaurus.config.js: ",config);
+console.log("docusaurus.config.js: ",config.plugins[0][1]);
 
 module.exports = config;

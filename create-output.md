@@ -48,6 +48,7 @@ Run `npm audit` for details.
 We recommend that you begin by typing:
 
   `cd www.rwwise.dev`
+  'npm install'
   `npm start`
 
 Happy building awesome websites!
